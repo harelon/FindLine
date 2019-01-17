@@ -1,0 +1,10 @@
+img0 d200 c-10 d134
+
+1 - img name 
+distance to center white line front
+c-10 - the angle the camera is situated - means turn camera to the right (clock wise) + means counter clock wise
+d134 - distance to the imaginary line continues from the white mark
+
+
+hight should be +3.3 cm
+ 
