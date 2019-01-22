@@ -6,7 +6,7 @@ import pickle
 import math
 
 
-PixToDegree = 10.6
+PixToDegree = 12.07
 counter = 0
 def best_contour(image):
     global counter
@@ -35,10 +35,14 @@ def best_contour(image):
     maxY = 0
     secondMaxY = 0
     for x, y in bestBox:
-        if maxY <= y:
-            secondMaxY = y
-            maxY = y
-    print(42.5/math.atan(math.radians(((maxY + secondMaxY)/2)/PixToDegree)))
+        if y > secondMaxY:
+            if y >= maxY:
+                maxY, secondMaxY = y, maxY            
+            else:
+                secondMaxY = y
+    print(maxY)
+    print(secondMaxY)
+    print(42.8/math.tan(math.radians(((maxY + secondMaxY)/2)/PixToDegree)))
     print(bestBox)
     return (cont, cont_area)
 
