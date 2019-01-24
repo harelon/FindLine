@@ -13,7 +13,7 @@ if __name__ == "__main__":
         required=True
     )
     args = parser.parse_args()
-    dirName = "output " + str(args.height)
+    dirName = "output" + str(args.height)
     if not os.path.exists(dirName):
         os.mkdir(dirName)
         print("Directory ", dirName, " Created ")
