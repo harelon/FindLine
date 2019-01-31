@@ -56,39 +56,6 @@ def most_rectengular_contour(image):
     if not found_box:
         return
         # if we didn't find any box matching our criteria
-        # we don't need to check for the distance to the rectangle
-    max_box_y = 0
-    second_max_box_y = 0
-    # we need to have the two lower points of the rectangle which have bigger Y
-    # to calculate their average to know what distance they are
-    for _, y in bestBox:
-        if y > second_max_box_y:
-            if y >= max_box_y:
-                max_box_y, second_max_box_y = y, max_box_y
-            else:
-                second_max_box_y = y
-        # finds the max Y value and the second max Y in the box lowest because
-        # y starts from the top
-        # then the max value is the lowest corner of the rectangle
-    average_lowest_frame_y = (max_box_y + second_max_box_y) / 2
-    # contains the y of the middle of the shorter side of the line closer to us
-    line_latitude_angle_to_camera = average_lowest_frame_y / PixToDegree
-    # the line latitude angle is the y of its middle
-    # divided by the pixels to degree ratio
-    # because the camera center is parallel to the floor
-    # it is the same angle as the line middle y of the center
-    # to the camera
-    line_latitude_angle_to_camera = math.radians(line_latitude_angle_to_camera)
-    # the tangens function in python
-    # returns value as if the angle was in radians
-    # so we need to convert it to radians to get valid results
-    height_to_distance_ratio = math.tan(line_latitude_angle_to_camera)
-    # this is the ratio between the height to the distance to the line
-    distance = height / height_to_distance_ratio
-    # the distance equals the height
-    # divided to the ratio of the height to distance
-    print(distance)
-    # show the distance calculated
     return [cont]
     # return the points that are in the contour
 
